@@ -1,0 +1,67 @@
+<!-- Logo positioned absolutely in upper left -->
+<div style="position: absolute; top: 8px; left: 8px; z-index: 10;">
+  <img class="image-dither" src="https://findvectorlogo.com/wp-content/uploads/2022/02/keystone-resort-vector-logo.png" height="60" alt="Keystone Resort Logo">
+</div>
+
+<div class="layout gap--small">
+  <div class="grid grid--cols-1">
+    <!-- Main layout: Temps and snow data -->
+    <div class="row">
+      <div class="flex flex--row" style="align-items: flex-start; gap: 80px;">
+        <!-- Spacer for logo space -->
+        <div style="width: 80px;"></div>
+        
+        <!-- Middle: Temperature column -->
+        <div class="flex flex--col gap--medium" style="text-align: center;">
+          {% if WeatherShortDescription == "Clear" %}
+          <span class="value">🔵 {{ WeatherShortDescription }}</span>
+          {% else %}
+          <span class="value">{{ WeatherShortDescription }}</span>
+          {% endif %}
+          <span class="value value--large">{{ CurrentTempStandard | round }}°F</span>
+          <div class="flex flex--row gap--medium">
+            <div class="flex flex--col gap--xsmall" style="text-align: center;">
+              <span class="value">{{ HighTempStandard | round }}°F</span>
+              <span class="value value--small">High</span>
+            </div>
+            <div class="flex flex--col gap--xsmall" style="text-align: center;">
+              <span class="value">{{ LowTempStandard | round }}°F</span>
+              <span class="value value--small">Low</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right side: Four quadrants -->
+        <div class="grid grid--cols-2 gap--medium">
+          <!-- Top Left: 24 Hour Snowfall -->
+          <div class="flex flex--col gap--xsmall" style="text-align: center;">
+            <span class="value value--large">{{ SnowReportSections[0].Depth.Inches }}"</span>
+            <span class="value value--small">24hr Snow</span>
+          </div>
+          
+          <!-- Top Right: Base Depth -->
+          <div class="flex flex--col gap--xsmall" style="text-align: center;">
+            <span class="value value--large">{{ SnowReportSections[1].Depth.Inches }}"</span>
+            <span class="value value--small">Base Depth</span>
+          </div>
+
+          <!-- Bottom Left: Open Lifts -->
+          <div class="flex flex--col gap--xsmall" style="text-align: center;">
+            <span class="value value--large">{{ OpenLifts }}</span>
+            <span class="value value--small">Open Lifts</span>
+          </div>
+
+          <!-- Bottom Right: Total Lifts -->
+          <div class="flex flex--col gap--xsmall" style="text-align: center;">
+            <span class="value value--large">{{ TotalLifts }}</span>
+            <span class="value value--small">Total Lifts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="title_bar">
+  <span class="title">Keystone Snow Report</span>
+</div>

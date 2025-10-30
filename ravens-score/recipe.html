@@ -1,0 +1,78 @@
+<div class="layout gap--large">
+    <div class="grid grid--cols-1">
+      <div class="row row--center">
+        <div class="flex flex--row gap--medium no-shrink" style="align-items: center;">
+          <div class="flex flex--col gap--xsmall">
+            <span class="title">{{ away.team.location }}</span>
+            <span class="title">{{ away.team.nickname }}</span>
+            <span class="value value--large">{{ away.score.value | round }}</span>
+          </div>
+          <img class="image-dither" src="{{ away.team.logos[0].href }}" height="180" alt="{{ away.team.displayName }} logo">
+        </div>
+        <div class="flex flex--col flex--center-y gap--xsmall">
+          <span class="value value--large">{{ separator }}</span>
+        </div>
+        <div class="flex flex--row gap--medium no-shrink" style="align-items: center;">
+          <img class="image-dither" src="{{ home.team.logos[0].href }}" height="180" alt="{{ home.team.displayName }} logo">
+          <div class="flex flex--col gap--xsmall">
+            <span class="title">{{ home.team.location }}</span>
+            <span class="title">{{ home.team.nickname }}</span>
+            <span class="value value--large">{{ home.score.value | round }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="row row--center">
+        <div class="flex flex--col no-shrink">                      
+          <span class="value">{{ local_time_epoch | date: "%A, %B %d" }}</span> <!-- Full date with default/medium font -->        
+          <span class="value">{{ local_time_epoch | date: "%l:%M %p" }}</span>
+          <span class="value value--small">at {{ next_event.venue.fullName }}</span>
+          {% if next_event.broadcasts and next_event.broadcasts.size > 0 %}
+          <img class="image" src="{{ next_event.broadcasts[0].media.logo }}" alt="{{ next_event.broadcasts[0].media.shortName }}"/>
+          <div class="layout gap--large">
+    <div class="grid grid--cols-1">
+      <div class="row row--center">
+        <div class="flex flex--row gap--medium no-shrink" style="align-items: center;">
+          <div class="flex flex--col gap--xsmall">
+            <span class="title">{{ away.team.location }}</span>
+            <span class="title">{{ away.team.nickname }}</span>
+            <span class="value value--large">{{ away.score.value | round }}</span>
+          </div>
+          <img class="image-dither" src="{{ away.team.logos[0].href }}" height="180" alt="{{ away.team.displayName }} logo">
+        </div>
+        <div class="flex flex--col flex--center-y gap--xsmall">
+          <span class="value value--large">{{ separator }}</span>
+        </div>
+        <div class="flex flex--row gap--medium no-shrink" style="align-items: center;">
+          <img class="image-dither" src="{{ home.team.logos[0].href }}" height="180" alt="{{ home.team.displayName }} logo">
+          <div class="flex flex--col gap--xsmall">
+            <span class="title">{{ home.team.location }}</span>
+            <span class="title">{{ home.team.nickname }}</span>
+            <span class="value value--large">{{ home.score.value | round }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="row row--center">
+        <div class="flex flex--col no-shrink">                      
+          <span class="value">{{ local_time_epoch | date: "%A, %B %d" }}</span> <!-- Full date with default/medium font -->        
+          <span class="value">{{ local_time_epoch | date: "%l:%M %p" }}</span>
+          <span class="value value--small">at {{ next_event.venue.fullName }}</span>
+          {% if next_event.broadcasts and next_event.broadcasts.size > 0 %}
+          <img class="image" src="{{ next_event.broadcasts[0].media.logo }}" alt="{{ next_event.broadcasts[0].media.shortName }}"/>
+          {% endif %}
+        </div>
+      </div>    
+    </div>
+  </div>
+  <div class="title_bar"> 
+    <img class="image" src="https://static.www.nfl.com/image/upload/v1554321393/league/nvfr7ogywskqrfaiu38m.svg" alt="NFL"/> 
+    <span class="title"> {{ selected_team_name_for_title }} </span> 
+  </div>
+          {% endif %}
+        </div>
+      </div>    
+    </div>
+  </div>
+  <div class="title_bar"> 
+    <img class="image" src="https://static.www.nfl.com/image/upload/v1554321393/league/nvfr7ogywskqrfaiu38m.svg" alt="NFL"/> 
+    <span class="title"> {{ selected_team_name_for_title }} </span> 
+  </div>

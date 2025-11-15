@@ -1,0 +1,65 @@
+<div class="layout gap--small">
+    <div class="grid grid--cols-2">
+      <div>
+        <span class="title">Fiction</span>
+        {% assign books = IDX_0.results.books %}
+        {% for book in books %}
+        {% if forloop.index <= 5 %}
+      <div class="row" style="padding-bottom: 5px; margin-bottom: 5px;">
+        <div class="flex flex--row gap--xsmall" style="align-items: flex-start;">
+          <!-- Book Image -->
+          <div class="flex flex--col" style="flex-shrink: 0;">
+            <img class="image-dither" src="{{ book.book_image }}" height="45" alt="{{ book.title }}" style="object-fit: contain;">
+          </div>
+          
+          <!-- Book Info -->
+            <div class="flex flex--row" style="flex: 1; gap: 8px; align-items: flex-start;">
+            <div style="width: 22px; text-align: right;">
+              <span class="value value--small" style="font-size: 0.75em;">{{ book.rank }}.</span>
+            </div>
+              <div class="flex flex--col" style="gap: 2px; text-align: left; align-items: flex-start; justify-content: flex-start;">
+                <span class="value value--small" style="font-size: 0.75em; text-align: left;">{{ book.title }}</span>
+                <span class="value value--small" style="font-size: 0.7em; text-align: left;">by {{ book.author }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+  
+      <!-- Nonfiction Column -->
+      <div>
+        <span class="title">Non-Fiction</span>
+        {% assign books_nf = IDX_1.results.books %}
+        {% for book in books_nf %}
+          {% if forloop.index <= 5 %}
+        <div class="row" style="padding-bottom: 5px; margin-bottom: 5px;">
+          <div class="flex flex--row gap--xsmall" style="align-items: flex-start;">
+            <!-- Book Image -->
+            <div class="flex flex--col" style="flex-shrink: 0;">
+              <img class="image-dither" src="{{ book.book_image }}" height="45" alt="{{ book.title }}" style="object-fit: contain;">
+            </div>
+            
+            <!-- Book Info -->
+            <div class="flex flex--row" style="flex: 1; gap: 8px; align-items: flex-start;">
+              <div style="width: 22px; text-align: right;">
+                <span class="value value--small" style="font-size: 0.75em;">{{ book.rank }}.</span>
+              </div>
+              <div class="flex flex--col" style="gap: 2px; text-align: left; align-items: flex-start; justify-content: flex-start;">
+                <span class="value value--small" style="font-size: 0.75em; text-align: left;">{{ book.title }}</span>
+                <span class="value value--small" style="font-size: 0.7em; text-align: left;">by {{ book.author }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+  <div class="title_bar">
+    <span class="title">NYT Bestsellers - Top 5</span>
+  </div>
+  
